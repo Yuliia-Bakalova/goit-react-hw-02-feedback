@@ -1,18 +1,18 @@
-import { Component } from 'react';
+import React from 'react';
 import { Section } from 'components/Section/Section';
 import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
 import { Statistics } from 'components/Statistics/Statistics';
 import { Notification } from 'components/Notification/Notification';
 import Container from './App.styled';
 
- class App extends Component {
+ class App extends React.Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
-  handleFeedbackChange = target => {
+   onLeaveFeedback = target => {
       this.setState(prevState => {
       return { [target]: prevState[target] + 1 };
     });
@@ -39,7 +39,7 @@ import Container from './App.styled';
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(this.state)}
-            onBtnClick={this.handleFeedbackChange}
+            onBtnClick={this.onLeaveFeedback}
           />
         </Section>
         <Section title="Statistics">
