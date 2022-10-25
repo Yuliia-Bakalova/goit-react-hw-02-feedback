@@ -12,7 +12,7 @@ import Container from './App.styled';
     bad: 0,
   };
 
-   onLeaveFeedback = target => {
+   onFeedbackIncrement = target => {
       this.setState(prevState => {
       return { [target]: prevState[target] + 1 };
     });
@@ -39,7 +39,7 @@ import Container from './App.styled';
         <Section title="Please leave feedback">
           <FeedbackOptions
             options={Object.keys(this.state)}
-            onBtnClick={this.onLeaveFeedback}
+            onLeaveFeedback={this.onFeedbackIncrement}
           />
         </Section>
         <Section title="Statistics">
